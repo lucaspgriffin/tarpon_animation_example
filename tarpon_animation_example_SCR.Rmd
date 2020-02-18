@@ -27,19 +27,6 @@ install.packages("devtools")
 devtools::install_github("thomasp85/gganimate") # animation package
 devtools::install_github("thomasp85/transformr") # allows for geom_path animation 
 
-setwd("/Users/lucasgriffin/Box Sync/BTT.Telemetry/L.G.Workplace/SCR")
-load("TarponFeb.2020.RData")
-
-setwd("~/github/tarpon_animation_example")
-
-Tarpon = Tarpon %>% filter(Transmitter %in% c("A69-9001-18574", "A69-9001-15888", "A69-9001-18584"))
-
-head(Tarpon)
-
-Tarpon = Tarpon %>% select(ID, Transmitter, UTC, Latitude, Longitude)
-save(Tarpon, file = "Tarpon.RData")
-
-
 # data
 setwd("~/github/tarpon_animation_example")
 load("Tarpon.RData") # our Tarpon object is a subset of three tarpon. Object = Tarpon
