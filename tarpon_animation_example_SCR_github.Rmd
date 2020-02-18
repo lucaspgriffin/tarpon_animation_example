@@ -1,10 +1,6 @@
 ---
-title: "plots and animations"
-output: 
-  html_document:
-    df_print: paged
-editor_options: 
-  chunk_output_type: console
+title: "plots and animations github"
+output: github_document
 ---
 
 We'll first load packages and data. 
@@ -175,4 +171,3 @@ Migration_plot_mod_animation_final
 
 anim_save("Migration_plot_mod_animation_final.gif")
 ```
-
