@@ -1,7 +1,9 @@
 ---
 title: "plots and animations"
-output: html_notebook
-editor_options: 
+output:
+  html_document:
+    df_print: paged
+editor_options:
   chunk_output_type: console
 ---
 
@@ -14,7 +16,7 @@ See Griffin, Lucas P., et al. "Keeping up with the Silver King: Using cooperativ
 
 This data should not be re-purposed for anything beyond this example.
 
-```{r library and data}
+```{r instal libraries, eval=FALSE}
 # install or load packages
 install.packages('dplyr') # data manipulation
 install.packages('lubridate') # data manipulation for dates
@@ -28,6 +30,9 @@ library(devtools)
 devtools::install_github("thomasp85/gganimate") # animation package
 devtools::install_github("thomasp85/transformr") # allows for geom_path animation 
 
+```
+
+```{r load libraries and data, echo=T, results='hide'}
 library(dplyr)
 library(lubridate)
 library(ggplot2)
@@ -124,7 +129,7 @@ Above we have a plot that shows latitude movements across years at the month lev
 
 Note, there could very well be much easier ways to produce these outputs below, I welcome modifications to the code via GitHub. 
 
-```{r}
+```{r latitude plots - part three}
 
 #  We want to examine a time frame between March - March, this is provides a more complete picture of a tarpon's journey. 
 Tarpon$month <- strftime(Tarpon$UTC, format="%B") # select just the month portion of the detection time
@@ -162,13 +167,11 @@ ggsave("Migration_plot_mod.tiff", units = "in")
 ```
 
 Animiate our plot
-```{r}
-
-Migration_plot_mod
-
+```{r latitude plots - part four}
 Migration_plot_mod_animation = Migration_plot_mod + transition_reveal(moday_pos_mod) # transition through our date variable
 Migration_plot_mod_animation_final = animate(Migration_plot_mod_animation,fps = 6) # modify the frames per second (fps) to make it a smoother and slower transition period
 
+Migration_plot_mod_animation_final
 
 anim_save("Migration_plot_mod_animation_final.gif")
 ```
