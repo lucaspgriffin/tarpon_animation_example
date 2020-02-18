@@ -13,7 +13,7 @@ Atlantic tarpon (Megalops atlanticus) in the coastal waters of the
 southeastern United States.” Fisheries Research 205 (2018): 65-76. for
 more details on the larger and ongoing study.
 
-This data should not be re-purposed for anything beyond this example.
+This data should not be repurposed for anything beyond this example.
 
 ``` r
 # install or load packages
